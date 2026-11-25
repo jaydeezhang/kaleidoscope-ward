@@ -1,4 +1,3 @@
-const TAU = 2 * Math.PI;
 const sub = (a, b) => ({ x:a.x-b.x, y:a.y-b.y });
 const step = (a, d, t) => ({ x:a.x+d.x*t, y:a.y+d.y*t });
 const dot = (a, b) => a.x*b.x + a.y*b.y;
@@ -131,5 +130,5 @@ export class Charge {
 }
 
 export function controlAngle(mirror) {
-  return ((Math.round(mirror.angle*180/Math.PI)%180)+180)%180;
+  return ((Math.round(mirror.angle*180/Math.PI)+270)%180)-90;
 }
