@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#121617">
+  <title>万花镜结界</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main id="experience" aria-label="万花镜结界游戏">
+    <img id="room" src="./assets/room.jpg" alt="" aria-hidden="true">
+    <video id="camera" muted playsinline autoplay aria-hidden="true"></video>
+    <div class="shade" aria-hidden="true"></div>
+    <canvas id="stage" aria-hidden="true"></canvas>
+    <header>
+      <div class="brand">
+        <span class="emblem" aria-hidden="true"></span>
+        <h1>万花镜结界</h1>
+      </div>
+      <div class="toolbar">
+        <button id="camera-toggle" class="camera-button" type="button"><svg aria-hidden="true"><use href="./assets/icons.svg#video"></use></svg><span>开启摄像头</span></button>
+        <button id="reset" class="icon-button" type="button" aria-label="重新开始" title="重新开始"><svg aria-hidden="true"><use href="./assets/icons.svg#rotate-ccw"></use></svg></button>
+      </div>
+    </header>
+    <div id="markers" aria-hidden="true">
+      <span id="source-label" class="marker">光源</span>
+      <span id="first-label" class="marker">镜片一</span>
+      <span id="second-label" class="marker">镜片二</span>
+      <span id="goal-label" class="marker">符文</span>
+    </div>
+    <button id="first-mirror" class="mirror-button" aria-label="选中镜片一" aria-pressed="false"></button>
+    <button id="second-mirror" class="mirror-button" aria-label="选中镜片二" aria-pressed="false"></button>
+    <div id="result" hidden>
+      <p>结界已展开</p>
+      <button id="replay" type="button"><svg aria-hidden="true"><use href="./assets/icons.svg#rotate-ccw"></use></svg>再玩一次</button>
+    </div>
+    <footer>
+      <div class="controls">
+        <p id="goal-readout" role="status" aria-live="polite"><span class="status-dot"></span><span id="step-text">将金光引向第二枚镜片</span></p>
+        <div class="fallback">
+          <div class="segmented" aria-label="选择镜片">
+            <button id="control-first" type="button" aria-pressed="true">镜片一</button>
+            <button id="control-second" type="button" aria-pressed="false">镜片二</button>
+          </div>
+          <label for="angle" class="sr-only">旋转角度</label>
+          <input id="angle" type="range" min="0" max="179" step="1" value="0">
+          <output id="angle-number" for="angle">0°</output>
+        </div>
+      </div>
+      <p id="camera-state" role="status" aria-live="polite">摄像头关闭 · 可用下方角度控件游玩</p>
+    </footer>
+  </main>
+  <script type="module" src="./game.mjs"></script>
+</body>
+</html>
